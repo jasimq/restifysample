@@ -5,8 +5,6 @@ global.mysql = require('mysql');
 var server = {};
 var routes = require('./routes.js');
 
-//If we don't already have a global listenPort variable that was set
-//in bootstrap via a command line arg, use the one in the config file.
 if (!listenPort) {
   var listenPort = 7777;
 }
@@ -27,11 +25,5 @@ routes.route(server);
 //START THE SERVER!!!
 server.listen(listenPort, function() {
   console.log(server.name + ' listening at ' + server.url);
-});
-
-
-server.use(function(req, req, next) {
-console.log('post processor');
-  return res.send();
 });
 
